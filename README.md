@@ -28,9 +28,9 @@ format(money,options);
 /**
 * money
 * required
+* number || string
 */
 
-number 
 
 /**
 * options

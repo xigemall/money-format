@@ -29,11 +29,11 @@ const initOptions = {
  * @param money
  * @param options
  */
-export function format(money: number, options: FormatOptions = initOptions): string {
+export function format(money: number | string, options: FormatOptions = initOptions): string {
     const option = { ...initOptions, ...options };
     const { decimal, delimiter, digit, round } = option;
 
-    let moneyStr = String(money.toFixed(decimal));
+    let moneyStr = String(Number(money).toFixed(decimal));
     if (!round) {
         const temp = String(Math.floor(parseFloat(String(money)) * 10 ** decimal));
         const leftMoney = temp.substring(0, temp.length - decimal);

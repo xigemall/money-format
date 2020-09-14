@@ -9,4 +9,4 @@ export interface FormatOptions {
  * @param money
  * @param options
  */
-export declare function format(money: number, options?: FormatOptions): string;
+export declare function format(money: number | string, options?: FormatOptions): string;
