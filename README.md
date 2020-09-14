@@ -20,23 +20,19 @@ console.log(result);
 
 ```
 
-##options
+##Usage
 
 ```js
-format(money,options);
+format(money,[, options])
+```
 
-/**
 * money
-* required
-* number || string
-*/
-
-
-/**
-* options
-* default
-*/
-
+    - type: number | string
+    
+* options 
+    - type: {}
+   
+```json
 {
     // 小数位数
     decimal: 2,
@@ -46,8 +42,8 @@ format(money,options);
     digit: 3,
     // 四舍五入
     round: true,
-}
 
+}
 ```
 
 
