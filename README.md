@@ -11,16 +11,23 @@ yarn add @happys/money-format
 ```js
 import { format } from '@happys/money-format';
 
-
 const result = format(1234567);
-
 console.log(result);
 
 1,234,567.00
-
 ```
 
-##Usage
+```js
+import { RMB } from '@happys/money-format';
+
+const result = RMB(10010);
+console.log(result);
+
+
+壹万零壹拾元整
+```
+
+##Api
 
 ```js
 format(money,[, options])
@@ -32,20 +39,50 @@ format(money,[, options])
 * options 
     - type: {}
    
-```json
+```js
 {
     // 小数位数
-    decimal: 2,
+    // default  2
+    decimal?: number;
+
     // 分割符
-    delimiter: ',',
+    // default  ,
+    delimiter?: string;
+
     // 分位数
-    digit: 3,
+    // default  3
+    digit?: number | boolean;
+
     // 四舍五入
-    round: true,
+    // default  true
+    round?: boolean;
 
 }
 ```
 
+```js
+RMB(money,[,options])
+```
 
+* money
+    - type: number | string
+
+* options
+    - type: {}
+```js
+{
+    // 前缀
+    // default ''
+    prefix?: string;
+
+    // 负数字符串
+    // default '负'
+    negativeStr?: string | boolean;
+
+    // 整数字符串
+    // default  '整'
+    integerStr?: string;
+}
+```
 
 

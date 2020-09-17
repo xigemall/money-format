@@ -1,25 +1,29 @@
 {
   "name": "@happys/money-format",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "money-format",
+  "author": "1032380143@qq.com",
+  "license": "ISC",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "mocha --reporter spec"
+    "test": "yarn build && mocha --reporter spec",
+    "dev": "yarn build && node lib/index.js"
   },
   "keywords": [
     "money",
     "format",
+    "rmb",
     "money-format",
-    "format-money"
+    "format-money",
+    "format-rmb",
+    "rmb-format"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/xigemall/money-format.git"
   },
-  "author": "1032380143@qq.com",
-  "license": "ISC",
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^8.1.3",

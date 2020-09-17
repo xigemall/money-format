@@ -1,2 +1,3 @@
 import { format, FormatOptions } from './lib/format';
-export { format, FormatOptions };
+import { RMB, RmbOptions } from './lib/rmb';
+export { format, FormatOptions, RMB, RmbOptions, };
