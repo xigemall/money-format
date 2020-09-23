@@ -1,4 +1,5 @@
-[![NPM version][npm-version-image]][npm-url]
+[npm](https://www.npmjs.com/package/@happys/money-format)   
+unpkg:https://unpkg.com/@happys/money-format@1.2.0/dist/format.min.js
 
 ## Installation
 ```shell script
@@ -27,6 +28,16 @@ console.log(result);
 
 
 壹万零壹拾元整
+```
+
+##Example
+```html
+<script type="text/javascript" src="https://unpkg.com/@happys/money-format@1.2.0/dist/format.min.js"></script>
+
+<script>
+    var result = format(1234567);
+    var rmb =  RMB(10010);
+</script>
 ```
 
 ##Api
