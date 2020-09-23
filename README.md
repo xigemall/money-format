@@ -1,3 +1,5 @@
+[![NPM version][npm-version-image]][npm-url]
+
 ## Installation
 ```shell script
 npm install @happys/money-format
