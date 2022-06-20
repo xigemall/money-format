@@ -33,11 +33,11 @@ export function format(money: number | string, options: FormatOptions = initOpti
   const option = {...initOptions, ...options};
   const {decimal, delimiter, digit, round} = option;
 
-  const moneyNum = Number(money) * 10 ** (decimal + 1);
+  const moneyNum = Math.ceil(Number(money) * 10 ** (decimal + 1));
   let num = Math.floor(moneyNum / 10);
   if (round) {
     // 四舍五入
-    num = Math.ceil(moneyNum / 10);
+    num = Math.round(moneyNum / 10);
   }
   const moneyStr = (num / 10 ** decimal).toFixed(decimal);
 
