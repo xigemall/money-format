@@ -1,5 +1,5 @@
 [npm](https://www.npmjs.com/package/@happys/money-format)   
-unpkg:https://unpkg.com/@happys/money-format@1.2.8/dist/format.min.js
+unpkg:https://unpkg.com/@happys/money-format@latest/dist/format.min.js
 
 ## Installation
 ```shell script
@@ -32,7 +32,7 @@ console.log(result);
 
 ##Example
 ```html
-<script type="text/javascript" src="https://unpkg.com/@happys/money-format@1.2.8/dist/format.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/@happys/money-format@latest/dist/format.min.js"></script>
 
 <script>
     var result = moneyFormat.format(1234567);

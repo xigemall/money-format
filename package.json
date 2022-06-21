@@ -1,6 +1,6 @@
 {
   "name": "@happys/money-format",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "description": "money-format",
   "author": "1032380143@qq.com",
   "license": "ISC",
@@ -11,7 +11,7 @@
     "tsc": "tsc",
     "test": "npm run tsc && mocha --reporter spec",
     "dev": "npm run tsc && node lib/index.js",
-    "build": "webpack -p --config webpack.config.js"
+    "build": "tsc && webpack -p --config webpack.config.js"
   },
   "keywords": [
     "money",
