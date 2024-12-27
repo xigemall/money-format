@@ -15,9 +15,23 @@ function toValidNumber(value: Value): number {
     }
     throw new Error('Invalid number format');
 }
-export function difference(val1: Value, val2: Value, options?: Options): Value{
+
+/**
+ * 计算两个值的差值
+ *
+ * 此函数接受两个值作为输入，并返回它们的差值结果可以通过可选的选项参数进行配置，以控制输出的精度
+ *
+ * @param val1 第一个值，可以是任何可以转换为数字的值
+ * @param val2 第二个值，可以是任何可以转换为数字的值
+ * @param options 可选的配置对象，包含控制计算和输出的各种选项
+ * @returns 返回两个值的差值，格式化为字符串
+ * @throws 如果输入值无效或配置不正确，将抛出错误
+ */
+export function difference(val1: Value, val2: Value, options?: Options): string{
     // 初始化默认选项
     const opts = options ?? initOptions;
+
+    // 检查输入值是否为空
     if(!val1 || !val2){
         throw new Error('val1 or val2 is empty');
     }
@@ -33,10 +47,10 @@ export function difference(val1: Value, val2: Value, options?: Options): Value{
     }
 
     try {
+        // 计算差值
         const total = toValidNumber(val1) - toValidNumber(val2);
         const result = total.toFixed(opts.decimals);
 
-        console.log(opts.decimals === 0 ? `${result}.0` : result)
         // 确保返回值始终包含小数点，即使 decimals 为 0
         return opts.decimals === 0 ? `${result}.0` : result;
     } catch (error) {

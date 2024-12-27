@@ -30,6 +30,24 @@ console.log(result);
 壹万零壹拾元整
 ```
 
+```js
+import { sum } from '@happys/money-format';
+
+const result = sum(['12.12', 10, 1.2]);
+console.log(result);
+
+23.32
+```
+
+```js
+import { difference } from '@happys/money-format';
+
+const result = difference(16.69,3.57);
+console.log(result);
+
+13.12
+```
+
 ##Example
 ```html
 <script type="text/javascript" src="https://unpkg.com/@happys/money-format@latest/dist/format.min.js"></script>
@@ -37,6 +55,8 @@ console.log(result);
 <script>
     var result = moneyFormat.format(1234567);
     var rmb =  moneyFormat.RMB(10010);
+    var sum =  moneyFormat.sum(['12.12', 10, 1.2]);
+    var difference =  moneyFormat.difference(16.69,3.57);
 </script>
 ```
 
@@ -44,58 +64,78 @@ console.log(result);
 
 ```js
 format(money, options)
-```
 
-* money
-    - type: number | string
-    
-* options 
-    - type: {}
-   
-```js
-{
-    // 小数位数
-    // default  2
-    decimal?: number;
+money = number | string
 
-    // 分割符
-    // default  ,
-    delimiter?: string;
+// 可选参数
+options = {
+  // 小数位数
+  // default  2
+  decimal?: number;
 
-    // 分位数
-    // default  3
-    digit?: number | boolean;
+  // 分割符
+  // default  ,
+  delimiter?: string;
 
-    // 四舍五入
-    // default  true
-    round?: boolean;
+  // 分位数
+  // default  3
+  digit?: number | boolean;
 
+  // 四舍五入
+  // default  true
+  round?: boolean;
 }
+
+
 ```
 
 ```js
 RMB(money, options)
-```
 
-* money
-    - type: number | string
+money = number | string
 
-* options
-    - type: {}
-```js
-{
-    // 前缀
-    // default ''
-    prefix?: string;
+// 可选参数
+options = {
+  // 前缀
+  // default ''
+  prefix?: string;
 
-    // 负数字符串
-    // default '负'
-    negativeStr?: string | boolean;
+  // 负数字符串
+  // default '负'
+  negativeStr?: string | boolean;
 
-    // 整数字符串
-    // default  '整'
-    integerStr?: string;
+  // 整数字符串
+  // default  '整'
+  integerStr?: string;
 }
 ```
+
+```js
+sum(arr, options)
+
+arr = Array<number | string>
+        
+// 可选参数
+options = {
+  // 小数位数
+  // default  2
+  decimals: number;
+}
+```
+
+```js
+difference(val1,val2, options)
+
+val1 = number | string
+val2 = number | string
+        
+// 可选参数
+options = {
+  // 小数位数
+  // default  2
+  decimals: number;
+}
+```
+
 
 

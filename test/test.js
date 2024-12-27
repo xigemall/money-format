@@ -1,6 +1,6 @@
 'use strict'
 const expect = require('chai').expect;
-const {format, RMB} = require('../lib/index');
+const { format, RMB, sum, difference } = require('../lib/index');
 
 /**
  * 金额format
@@ -37,3 +37,29 @@ describe('RMB function test', () => {
         expect(result).equal('壹万零壹佰元整')
     })
 })
+
+/**
+ * 求和
+ */
+describe('sum function test', () => {
+    const value = '23.32';
+    it('should return success', () => {
+        const result = sum(['12.12', 10, 1.2], {
+            decimals: 2
+        });
+        expect(result).equal(value)
+    })
+})
+
+/**
+ * 计算两个值的差值
+ */
+describe('difference function test', () => {
+    it('should return success', () => {
+        const result = difference(16.69,3.57, {
+            decimals: 2
+        });
+        expect(result).equal('13.12')
+    })
+})
+

@@ -29,7 +29,7 @@ function validateAndConvert(arr: Arr): number[] {
  * @param options 可选的计算选项，包括小数位数
  * @returns 根据选项格式化后的总和字符串
  */
-export function sum(arr: Arr, options?: Options): Value {
+export function sum(arr: Arr, options?: Options): string {
     // 初始化默认选项
     const opts = options ?? initOptions;
 
