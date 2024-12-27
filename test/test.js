@@ -42,10 +42,11 @@ describe('RMB function test', () => {
  * 求和
  */
 describe('sum function test', () => {
-    const value = '23.32';
+    const value = '23.33';
     it('should return success', () => {
-        const result = sum(['12.12', 10, 1.2], {
-            decimals: 2
+        const result = sum(['12.126', 10, 1.2], {
+            decimals: 2,
+            round: true
         });
         expect(result).equal(value)
     })
@@ -56,10 +57,11 @@ describe('sum function test', () => {
  */
 describe('difference function test', () => {
     it('should return success', () => {
-        const result = difference(16.69,3.57, {
-            decimals: 2
+        const result = difference(12.594,6.5, {
+            decimals: 2,
+            round: true
         });
-        expect(result).equal('13.12')
+        expect(result).equal('6.09')
     })
 })
 

@@ -27,12 +27,14 @@ function toValidNumber(value: Value): number {
  * @returns 返回两个值的差值，格式化为字符串
  * @throws 如果输入值无效或配置不正确，将抛出错误
  */
-export function difference(val1: Value, val2: Value, options?: Options): string{
+export function difference(val1: Value, val2: Value, options?: Options): string {
     // 初始化默认选项
-    const opts = options ?? initOptions;
+    const opts = {...initOptions, ...options}
+
+    const {decimals, round} = opts;
 
     // 检查输入值是否为空
-    if(!val1 || !val2){
+    if (!val1 || !val2) {
         throw new Error('val1 or val2 is empty');
     }
 
@@ -42,17 +44,21 @@ export function difference(val1: Value, val2: Value, options?: Options): string{
     }
 
     // 检查 decimals 是否合法
-    if ((Math.floor(opts.decimals) !== opts.decimals) || opts.decimals < 0 || opts.decimals > 14) {
+    if ((Math.floor(decimals) !== decimals) || decimals < 0 || decimals > 14) {
         throw new Error('Invalid decimals value');
     }
 
     try {
         // 计算差值
         const total = toValidNumber(val1) - toValidNumber(val2);
-        const result = total.toFixed(opts.decimals);
 
-        // 确保返回值始终包含小数点，即使 decimals 为 0
-        return opts.decimals === 0 ? `${result}.0` : result;
+        const moneyNum = Math.ceil(total * 10 ** (decimals + 1));
+
+        let num = Math.floor(moneyNum / 10)
+        if (round) {
+            num = Math.round(moneyNum / 10)
+        }
+        return (num / 10 ** decimals).toFixed(decimals)
     } catch (error) {
         console.error('Error in difference calculation:', error);
         throw new Error('Calculation failed');

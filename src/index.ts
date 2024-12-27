@@ -3,7 +3,8 @@ import { RMB, RmbOptions } from './lib/rmb';
 import { sum, Options } from "./lib/sum";
 import { difference } from "./lib/difference";
 
-// difference('12.12', 12.63, {decimals: 3})
+
+console.log(sum(['12.126', 10], {decimals: 1, round: true}))
 export {
     format,
     FormatOptions,
